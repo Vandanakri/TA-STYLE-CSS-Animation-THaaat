@@ -55,7 +55,12 @@ table {
 body {
   font-size: 16px;
   line-height: 1.5;
-  font-family: 'Archivo', sans-serif;
+  font-family: "Open Sans", sans-serif;
+  background-color: black;
+}
+
+html {
+  font-size: 18px;
 }
 
 *, *::after, *::before {
@@ -68,72 +73,165 @@ a {
 }
 
 .container {
-  max-width: 90%;
-  margin: 0 auto;
-  padding: 0 6rem;
+  max-width: 1000px;
+  margin: 5rem auto;
+  width: 100%;
+  height: 90vh;
+  display: -ms-grid;
+  display: grid;
+  gap: 3rem;
+  border: 8px double white;
+  -ms-grid-columns: 1fr 2fr;
+      grid-template-columns: 1fr 2fr;
+}
+
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 h1 {
-  color: #ffaf1c;
+  font-size: 2.5rem;
+  font-weight: 700;
   text-align: center;
+  color: yellowgreen;
 }
 
-.wrap-box {
+h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  color: yellowgreen;
+}
+
+/* 2D Cube*/
+.box1 {
+  width: 100%;
+  height: 100vh;
+  margin-top: 5rem;
+}
+
+.box1:hover {
+  -webkit-animation: spin 5s linear infinite;
+          animation: spin 5s linear infinite;
+  cursor: pointer;
+}
+
+.box1 .cube-2d {
+  left: 10%;
+  position: relative;
+}
+
+.box1 .cube-2d .side {
+  position: absolute;
+  height: 100px;
+  width: 100px;
+}
+
+.box1 .cube-2d .top {
+  background-color: orangered;
+  -webkit-transform: rotate(-45deg) skew(15deg, 15deg);
+          transform: rotate(-45deg) skew(15deg, 15deg);
+}
+
+.box1 .cube-2d .left {
+  background-color: green;
+  -webkit-transform: rotate(15deg) skew(15deg, 15deg) translate(-50%, 100%);
+          transform: rotate(15deg) skew(15deg, 15deg) translate(-50%, 100%);
+}
+
+.box1 .cube-2d .right {
+  background-color: #fff;
+  -webkit-transform: rotate(-15deg) skew(-15deg, -15deg) translate(50%, 100%);
+          transform: rotate(-15deg) skew(-15deg, -15deg) translate(50%, 100%);
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+  }
+  100% {
+    -webkit-transform: rotateY(360deg);
+            transform: rotateY(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+  }
+  100% {
+    -webkit-transform: rotateY(360deg);
+            transform: rotateY(360deg);
+  }
+}
+
+/* 3D Cube*/
+.box2 {
   width: 250px;
   height: 250px;
-  margin: 120px auto;
+  margin: 5rem auto;
   position: relative;
 }
 
 .cube-3d {
   width: 100%;
   height: 100%;
-  margin: 0 auto;
+  margin: 2rem auto;
   position: absolute;
   -webkit-transform: translateZ(-100px);
           transform: translateZ(-100px);
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
-  -webkit-perspective: 400;
-          perspective: 400;
+  -webkit-perspective: 300;
+          perspective: 300;
 }
 
 .side {
-  border: 2px solid #2db34a;
+  border: 2px solid #8d918e;
   height: 196px;
   position: absolute;
-  width: 196px;
+  width: 200px;
   text-align: center;
 }
 
 .front {
   -webkit-transform: translateZ(100px);
           transform: translateZ(100px);
-  background-color: rgba(241, 95, 95, 0.507);
+  background-color: rgba(119, 35, 35, 0.507);
 }
 
 .back {
   -webkit-transform: rotateX(180deg) translateZ(100px);
           transform: rotateX(180deg) translateZ(100px);
-  background-color: rgba(177, 212, 78, 0.589);
+  background-color: blueviolet;
 }
 
 .left {
   -webkit-transform: rotateY(-90deg) translateZ(100px);
           transform: rotateY(-90deg) translateZ(100px);
-  background-color: rgba(243, 152, 73, 0.637);
+  background-color: brown;
 }
 
 .right {
   -webkit-transform: rotateY(90deg) translateZ(100px);
           transform: rotateY(90deg) translateZ(100px);
-  background-color: rgba(47, 186, 241, 0.555);
+  background-color: mediumspringgreen;
 }
 
 .top {
   -webkit-transform: rotateX(90deg) translateZ(100px);
           transform: rotateX(90deg) translateZ(100px);
-  background-color: rgba(255, 99, 71, 0.664);
+  background-color: orchid;
 }
 
 .bottom {
