@@ -1,0 +1,277 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+body {
+  font-size: 16px;
+  line-height: 1.5;
+  font-family: "Open Sans", sans-serif;
+  background-color: black;
+}
+
+html {
+  font-size: 18px;
+}
+
+*, *::after, *::before {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 5rem auto;
+  width: 100%;
+  height: 90vh;
+  display: -ms-grid;
+  display: grid;
+  gap: 3rem;
+  border: 8px double white;
+  -ms-grid-columns: 1fr 2fr;
+      grid-template-columns: 1fr 2fr;
+}
+
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  color: yellowgreen;
+}
+
+h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  color: yellowgreen;
+}
+
+/* 2D Cube*/
+.box1 {
+  width: 100%;
+  height: 100vh;
+  margin-top: 5rem;
+}
+
+.box1:hover {
+  -webkit-animation: spin 5s linear infinite;
+          animation: spin 5s linear infinite;
+  cursor: pointer;
+}
+
+.box1 .cube-2d {
+  left: 10%;
+  position: relative;
+}
+
+.box1 .cube-2d .side {
+  position: absolute;
+  height: 100px;
+  width: 100px;
+}
+
+.box1 .cube-2d .top {
+  background-color: orangered;
+  -webkit-transform: rotate(-45deg) skew(15deg, 15deg);
+          transform: rotate(-45deg) skew(15deg, 15deg);
+}
+
+.box1 .cube-2d .left {
+  background-color: green;
+  -webkit-transform: rotate(15deg) skew(15deg, 15deg) translate(-50%, 100%);
+          transform: rotate(15deg) skew(15deg, 15deg) translate(-50%, 100%);
+}
+
+.box1 .cube-2d .right {
+  background-color: #fff;
+  -webkit-transform: rotate(-15deg) skew(-15deg, -15deg) translate(50%, 100%);
+          transform: rotate(-15deg) skew(-15deg, -15deg) translate(50%, 100%);
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+  }
+  100% {
+    -webkit-transform: rotateY(360deg);
+            transform: rotateY(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+  }
+  100% {
+    -webkit-transform: rotateY(360deg);
+            transform: rotateY(360deg);
+  }
+}
+
+/* 3D Cube*/
+.box2 {
+  width: 250px;
+  height: 250px;
+  margin: 5rem auto;
+  position: relative;
+}
+
+.cube-3d {
+  width: 100%;
+  height: 100%;
+  margin: 2rem auto;
+  position: absolute;
+  -webkit-transform: translateZ(-100px);
+          transform: translateZ(-100px);
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-perspective: 300;
+          perspective: 300;
+}
+
+.side {
+  border: 2px solid #8d918e;
+  height: 196px;
+  position: absolute;
+  width: 200px;
+  text-align: center;
+}
+
+.front {
+  -webkit-transform: translateZ(100px);
+          transform: translateZ(100px);
+  background-color: rgba(119, 35, 35, 0.507);
+}
+
+.back {
+  -webkit-transform: rotateX(180deg) translateZ(100px);
+          transform: rotateX(180deg) translateZ(100px);
+  background-color: blueviolet;
+}
+
+.left {
+  -webkit-transform: rotateY(-90deg) translateZ(100px);
+          transform: rotateY(-90deg) translateZ(100px);
+  background-color: brown;
+}
+
+.right {
+  -webkit-transform: rotateY(90deg) translateZ(100px);
+          transform: rotateY(90deg) translateZ(100px);
+  background-color: mediumspringgreen;
+}
+
+.top {
+  -webkit-transform: rotateX(90deg) translateZ(100px);
+          transform: rotateX(90deg) translateZ(100px);
+  background-color: orchid;
+}
+
+.bottom {
+  -webkit-transform: rotateX(-90deg) translateZ(100px);
+          transform: rotateX(-90deg) translateZ(100px);
+  background-color: yellowgreen;
+}
+
+.cube-3d:hover {
+  -webkit-animation: cubeRotation 5s infinite;
+          animation: cubeRotation 5s infinite;
+}
+
+@-webkit-keyframes cubeRotation {
+  0% {
+    -webkit-transform: rotateX(-22deg) rotateY(-38deg) rotateZ(0deg);
+            transform: rotateX(-22deg) rotateY(-38deg) rotateZ(0deg);
+  }
+  50% {
+    -webkit-transform: rotateX(278deg) rotateY(31deg) rotateZ(143deg);
+            transform: rotateX(278deg) rotateY(31deg) rotateZ(143deg);
+  }
+  100% {
+    -webkit-transform: rotateX(-22deg) rotateY(-398deg) rotateZ(0deg);
+            transform: rotateX(-22deg) rotateY(-398deg) rotateZ(0deg);
+  }
+}
+
+@keyframes cubeRotation {
+  0% {
+    -webkit-transform: rotateX(-22deg) rotateY(-38deg) rotateZ(0deg);
+            transform: rotateX(-22deg) rotateY(-38deg) rotateZ(0deg);
+  }
+  50% {
+    -webkit-transform: rotateX(278deg) rotateY(31deg) rotateZ(143deg);
+            transform: rotateX(278deg) rotateY(31deg) rotateZ(143deg);
+  }
+  100% {
+    -webkit-transform: rotateX(-22deg) rotateY(-398deg) rotateZ(0deg);
+            transform: rotateX(-22deg) rotateY(-398deg) rotateZ(0deg);
+  }
+}
+/*# sourceMappingURL=style.css.map */
